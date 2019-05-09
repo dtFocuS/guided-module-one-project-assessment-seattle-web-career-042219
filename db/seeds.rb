@@ -1,3 +1,5 @@
+require_relative '../app/models/crypto'
+
 def populate_crypto
   year_array = ["2017", "2018"]
   bitcoin_array = ["Bitcoin", "Ethereum", "Litecoin"]
@@ -32,3 +34,4 @@ def populate_crypto
     end
   end
 end
+populate_crypto
