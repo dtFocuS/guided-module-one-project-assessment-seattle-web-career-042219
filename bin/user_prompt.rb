@@ -55,6 +55,7 @@ end
 def menu(user)
   print "\e[8;1000;1000t"
   aa = Artii::Base.new :font => 'doom'
+
   puts ("Let's invest some money?".center(110))
   puts
   puts ("1.  Play a New Game ".center(125))
@@ -85,6 +86,7 @@ def menu(user)
     sleep(3)
     menu(user)
   elsif user_input == "4"
+
     if User.find_by(id: user.id)
       if Investment.where(user_id: user.id)
         invest_entry = Investment.where(user_id: user.id)
