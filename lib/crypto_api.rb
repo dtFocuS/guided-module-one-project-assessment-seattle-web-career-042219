@@ -106,7 +106,7 @@ def start_game(user)
     if response.downcase != "yes" && response.downcase != "no"
       puts "Please enter a valid response."
     else
-      new_investment = Investment.create(response: response, user_id: user.id, crypto_id: results_array[i].id)
+      #new_investment = Investment.create(response: response, user_id: user.id, crypto_id: results_array[i].id)
       if response.downcase == "yes"
         if results_array[i].price < results_array[i-1].price
           puts "Oops! The value went down in #{Date::MONTHNAMES[i]}. Price was #{results_array[i].price}."
