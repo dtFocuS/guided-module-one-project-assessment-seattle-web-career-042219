@@ -28,27 +28,29 @@ reports_array = []
 while i < 13
   print "Would you like to invest in the month of #{Date::MONTHNAMES[i]}: "
   response = gets.chomp
-  #new_investment = Investment.create(response: response, user_id: current_user.id, crypto_id: results_array[i].id)
-  if response.downcase == "yes"
-    if results_array[i-1].price < results_array[i-2].price
-      puts "Oops! The value went down in #{Date::MONTHNAMES[i]}. Price was #{results_array[i-1].price}."
-      reports_array << false
-    else
-      puts "The value WENT UP!! Nice investment. Price was #{results_array[i-1].price}."
-      reports_array << true
-    end
-    i += 1
-  elsif response.downcase == "no"
-    if results_array[i-1].price < results_array[i-2].price
-      puts "The value WENT DOWN!! Price was #{results_array[i-1].price}."
-      reports_array << true
-    else
-      puts "Too bad. You woulda made some money. Price was #{results_array[i-1].price}."
-      reports_array << false
-    end
-    i += 1
-  else
+  if response.downcase != "yes" && response.downcase != "no"
     puts "Please enter a valid response."
+  else
+  #new_investment = Investment.create(response: response, user_id: current_user.id, crypto_id: results_array[i].id)
+    if response.downcase == "yes"
+      if results_array[i-1].price < results_array[i-2].price
+        puts "Oops! The value went down in #{Date::MONTHNAMES[i]}. Price was #{results_array[i-1].price}."
+        reports_array << false
+      else
+        puts "The value WENT UP!! Nice investment. Price was #{results_array[i-1].price}."
+        reports_array << true
+      end
+      i += 1
+    elsif response.downcase == "no"
+      if results_array[i-1].price < results_array[i-2].price
+        puts "The value went down!! Good job on not investing. Price was #{results_array[i-1].price}."
+        reports_array << true
+      else
+        puts "Too bad. You woulda made some money. Price was #{results_array[i-1].price}."
+        reports_array << false
+      end
+      i += 1
+    end
   end
   puts ""
 end
