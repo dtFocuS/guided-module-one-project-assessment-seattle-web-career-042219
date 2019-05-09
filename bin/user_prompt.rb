@@ -55,12 +55,14 @@ end
 def menu(user)
   print "\e[8;1000;1000t"
   aa = Artii::Base.new :font => 'doom'
-  puts aa.asciify("Let's invest some money?".center(110))
+
+  puts ("Let's invest some money?".center(110))
   puts
-  puts aa.asciify("1.  Play a New Game ".center(125))
-  puts aa.asciify("2.  Choose a Different Coin ".center(125))
-  puts aa.asciify("3.  Show Previous Result ".center(125))
-  puts aa.asciify("4. Quit Game ".center(125))
+  puts ("1.  Play a New Game ".center(125))
+  puts ("2.  Choose a Different Coin ".center(125))
+  puts ("3.  Show Previous Result ".center(125))
+  puts ("4.  Delete Account Data ".center(125))
+  puts ("5. Quit Game ".center(125))
   user_input = gets.chomp
   if user_input == "1" || user_input == "2"
     start_game(user)
@@ -84,8 +86,22 @@ def menu(user)
     sleep(3)
     menu(user)
   elsif user_input == "4"
+
+    if User.find_by(id: user.id)
+      if Investment.where(user_id: user.id)
+        invest_entry = Investment.where(user_id: user.id)
+        invest_entry.each {|investment| investment.destroy}
+      end
+      user_data = User.find_by(id: user.id)
+      user_data.destroy
+      puts "User data wiped"
+    end
+    sleep(3)
+    system "clear"
+    play_game
+  elsif user_input == "5"
     puts "Exit Game."
-  else 
+  else
     puts "Selection not recognized"
     system "clear"
   end
