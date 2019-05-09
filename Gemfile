@@ -11,3 +11,14 @@ gem "json"
 gem "rake"
 gem "tty"
 gem "date"
+gem "tco"
+gem "colorize"
+gem "htmlentities"
+gem "terminal-table"
+gem "artii"
+gem "word_wrap"
+
+
+group :imagemagick do
+  gem 'catpix'
+end
