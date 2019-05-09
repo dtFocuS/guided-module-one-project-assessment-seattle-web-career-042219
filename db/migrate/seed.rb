@@ -1,6 +1,6 @@
 def populate_crypto
   year_array = ["2017", "2018"]
-  bitcoin_array = ["Bitcoin", "Ethereum"]
+  bitcoin_array = ["Bitcoin", "Ethereum", "Litecoin"]
   price_hash = {}
 
   year_array.each do |year|
