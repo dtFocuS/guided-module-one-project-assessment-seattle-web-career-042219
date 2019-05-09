@@ -26,8 +26,7 @@ def populate_crypto
   price_hash.each do |coin, info|
     info.each do |hash|
       hash.each do |key, value|
-        target = Crypto.new(name: coin, price: value, date: key)
-        target.save
+        target = Crypto.create(name: coin, price: value, date: key)
       end
     end
   end
