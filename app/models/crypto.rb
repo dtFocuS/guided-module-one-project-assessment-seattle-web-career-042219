@@ -6,6 +6,6 @@ class Crypto < ActiveRecord::Base
   end
 
   def display
-    puts "#{Date::MONTHNAMES[self.date.split("-")[1].to_i]} price is $#{self.price}"
+    puts "                                                                                                  #{Date::MONTHNAMES[self.date.split("-")[1].to_i]} price is $#{self.price}"
   end
 end
