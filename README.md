@@ -1,8 +1,8 @@
-Module One Final Project
+## Module One Final Project
 
 ========================
 
-#Crypto Investment Game
+## Crypto Investment Game
 
 ![menu](lib/img/bestsize.png)
 
