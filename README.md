@@ -75,6 +75,21 @@ You can see a video demo of our program at the directory below
 
 demo/mod1_project_demo.mov
 
+## Models
+
+![menu](table/tables.png)
+
+This flowchart represents the model relationships for our database. The database is seeded prior to starting a game which populates the tables with data from the Coin Gecko API.
+
+ * User has-many Investments
+ * User has-many Cryptos through Investments
+
+ * Crypto has-many Investments
+
+ * Investments belongs-to User
+ * Investments belongs-to User
+
+
 ## Credits
 A project by [Alex Borst](https://github.com/ButlerBorst) and [Danny Tseng](https://github.com/dtFocuS)
 
